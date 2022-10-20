@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AJAX Example</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='js/style.css') }}">
+	<script src="{{ url_for('static', filename='js/form.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <nav >
+              <ul>
+                <li>Home</li>
+                <li>test</li>
+                <li>test</li>
+              </ul>
+            </nav>
+           
+        </header>
+        <aside class="sidebar">
+            <h3>Top tier memes</h3>
+            <ul>
+                <a href="rwerw">   <li> januari</li></a>
+                <a href="rwerw">   <li> Februari</li></a>
+                <a href="rwerw">   <li> maj</li></a>
+              </ul>
+              <div class="container">
+                <br><br><br><br>
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label class="sr-only" for="nameInput">Name</label>
+                    <input type="text" class="form-control" id="nameInput" placeholder="First Name">
+                  </div>
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <br>
+                <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+                <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+            </div>
+        </aside>
+        <section class="main">
+            <h2>WSB TOP TIER MEMES</h2>
+            <p>Lorem ipsum dotat excepteur officia. eos sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.</p>
+             <p> </p>
+             
+      </section>
+      <section class="imagesection">
+            <figure id="test" class="images">
+                <div class="content">
+                    <img id="image"></img>
+                      <div class="content-overlay">
+
+                      </div>
+
+                </div> 
+            </figure>
+      </section>
+        <footer>
+            <h3></h3>
+            <p>Lorodo officia doqua reprehenderit commodo ex tetur et est culpa et culpa duis.</p>
+        </footer>
+
+</body>
+</html>
