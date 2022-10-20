@@ -13,13 +13,19 @@ $(document).ready(function() {
 		.done(function(data) {
 			
 			if (data.error) {
+				
 				$('#errorAlert').text(data.error).show();
 				$('#successAlert').hide();
 			}
 			else {
-					var $linklist = $(data.name);
+				$redditnames = data.name;
+				console.log($redditnames[2])
+				$('.content').remove();
+				$.each($redditnames, function( index, value ) {
 
-					$("#image").attr('src',data.name).show();
+					$('#test').append("<div class='content'> <img id='image' src="+value+"> </img> </div>");
+				  });
+
 				$('#errorAlert').hide();
 			}
 
