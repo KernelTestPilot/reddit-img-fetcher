@@ -19,11 +19,16 @@ $(document).ready(function() {
 			}
 			else {
 				$redditnames = data.name;
-				console.log($redditnames[2])
-				$('.content').remove();
-				$.each($redditnames, function( index, value ) {
+				$reddittitles = data.title;
 
-					$('#test').append("<div class='content'> <img id='image' src="+value+"> </img> </div>");
+				const m = data.title;
+				console.log(m)
+				$('.content').remove();
+				$.each(data.name, function( index, value ) {
+					const title =m[index];
+					console.log(index)
+					$('#test').append("<div class='content'> <img id='image' src="+value+"> <div class='content-overlay'><h2>"+title+"</h2> </div> </img> </div>");
+					
 				  });
 
 				$('#errorAlert').hide();

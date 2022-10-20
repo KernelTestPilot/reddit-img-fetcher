@@ -18,13 +18,14 @@ def process():
 	comment_list=[]
 	subName = request.form['name']
 	subreddit = reddit.subreddit(subName)
-	for submission in subreddit.hot(limit=10): 
+	for submission in subreddit.hot(limit=20): 
 		url = submission.url
 		if url.endswith(('.jpg', '.png', '.gif', '.jpeg')):
 			link_list.append(url)
+			title_list.append(submission.title)
 			print(link_list)
 			print("---------------------------------\n")
-	return jsonify({'name' : link_list})
+	return jsonify({'name' : link_list, 'title' : title_list } )
 
 if __name__ == '__main__':
 	app.run(debug=True)
