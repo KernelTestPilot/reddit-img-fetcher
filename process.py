@@ -27,32 +27,23 @@ def process():
 	subName = request.form['name']
 	subtype = request.form ['type']
 	if subName and subtype:
-			subreddit = reddit.subreddit(subName)
-			if subtype== 'new'	:
-				for submission in subreddit.new(limit=20): 
-					url = submission.url
-					if url.endswith(('.jpg', '.png', '.gif', '.jpeg')):
-						link_list.append(url)
-						title_list.append(submission.title)
-						print("---------------------------------\n")
-				return jsonify({'name' : link_list, 'title' : title_list } )
-			if subtype =='hot':
-				for submission in subreddit.hot(limit=20): 
+			if subtype == 'hot':
+				subreddit = reddit.subreddit(subName).hot(limit=20)
+			elif subtype == 'new':
+				subreddit = reddit.subreddit(subName).new(limit=20)
+			elif subtype == 'rising':
+				subreddit = reddit.subreddit(subName).rising(limit=20)
+			else:
+				print('Something went wrong, unknown subtype: {}'.format(subtype))
+				raise
+
+			for submission in subreddit: 
 						url = submission.url
 						if url.endswith(('.jpg', '.png', '.gif', '.jpeg')):
 							link_list.append(url)
 							title_list.append(submission.title)				
 							print("---------------------------------\n")
-				return jsonify({'name' : link_list, 'title' : title_list } )
-			if subtype =='rising':
-				for submission in subreddit.rising(limit=20): 
-						url = submission.url
-						if url.endswith(('.jpg', '.png', '.gif', '.jpeg')):
-							link_list.append(url)
-							title_list.append(submission.title)				
-							print("---------------------------------\n")
-				return jsonify({'name' : link_list, 'title' : title_list } )
-		
+			return jsonify({'name' : link_list, 'title' : title_list } )		
 	return jsonify({'error' : 'Missing data!'})
 
 

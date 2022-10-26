@@ -229,7 +229,10 @@ border-radius: 1px;
 
 
 
-
+.alert alert-danger{
+    width:100%;
+    background-color: #E56B6F;
+}
 
 footer{
     background-color: #E56B6F;
