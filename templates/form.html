@@ -22,24 +22,25 @@
            
         </header>
         <aside class="sidebar">
-            <h3>Top tier memes</h3>
-            <ul>
-                <a href="rwerw">   <li> januari</li></a>
-                <a href="rwerw">   <li> Februari</li></a>
-                <a href="rwerw">   <li> maj</li></a>
-              </ul>
-              <div class="container">
-                <br><br><br><br>
+              <div class="form-container">
                 <form class="form-inline">
                   <div class="form-group">
-                    <label class="sr-only" for="nameInput">Name</label>
-                    <input type="text" class="form-control" id="nameInput" placeholder="First Name">
+                    <label class="sr-only" for="nameInput">Search</label>
+                    <input type="text" class="form-control" id="nameInput" placeholder="Subreddit">
+                    <label for="cars"></label>
+                    <select name="type" id="type">
+                      <option value="hot">Hot</option>
+                      <option value="new">New</option>
+                      <option value="rising">rising</option>
+              
+                    </select>
                   </div>
+                
                   <button type="submit" class="btn btn-default">Submit</button>
                 </form>
                 <br>
                 <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
-                <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+                <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"> <p>Rate limit</p></div>
             </div>
         </aside>
         <section class="main">
@@ -57,6 +58,6 @@
             <h3></h3>
             <p>Lorodo officia doqua reprehenderit commodo ex tetur et est culpa et culpa duis.</p>
         </footer>
-
+      </div>
 </body>
 </html>

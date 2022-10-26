@@ -5,6 +5,7 @@ $(document).ready(function() {
 		$.ajax({
 			data : {
 				name : $('#nameInput').val(),
+				type : $('#type').val(),
 			},
 			type : 'POST',
 			url : '/process',
@@ -15,18 +16,15 @@ $(document).ready(function() {
 			if (data.error) {
 				
 				$('#errorAlert').text(data.error).show();
-				$('#successAlert').hide();
+				console.log("rate limit")
 			}
 			else {
-				$redditnames = data.name;
-				$reddittitles = data.title;
-
 				const m = data.title;
-				console.log(m)
+			
 				$('.content').remove();
 				$.each(data.name, function( index, value ) {
 					const title =m[index];
-					console.log(index)
+					
 					$('#test').append("<div class='content'> <img id='image' src="+value+"> <div class='content-overlay'><h2>"+title+"</h2> </div> </img> </div>");
 					
 				  });
