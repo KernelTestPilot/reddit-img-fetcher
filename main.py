@@ -4,9 +4,9 @@ import base64
 import requests
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-import os
 
 app = Flask(__name__)
+
 reddit = praw.Reddit('BestBuyBot')
 mods = []
 limiter = Limiter(
@@ -15,6 +15,7 @@ limiter = Limiter(
     default_limits=["200 per day", "50 per hour"],
     storage_uri="memory://",
 )
+
 @app.route('/')
 def index():
 	return render_template('form.html')
@@ -29,11 +30,11 @@ def process():
 	subtype = request.form ['type']
 	if subName and subtype:
 			if subtype == 'hot':
-				subreddit = reddit.subreddit(subName).hot(limit=50)
+				subreddit = reddit.subreddit(subName).hot(limit=30)
 			elif subtype == 'new':
-				subreddit = reddit.subreddit(subName).new(limit=50)
+				subreddit = reddit.subreddit(subName).new(limit=30)
 			elif subtype == 'rising':
-				subreddit = reddit.subreddit(subName).rising(limit=50)
+				subreddit = reddit.subreddit(subName).rising(limit=30)
 			else:
 				print('Something went wrong, unknown subtype: {}'.format(subtype))
 				raise
@@ -50,4 +51,4 @@ def process():
 
 
 if __name__ == '__main__':
-	    app.run(port=8080)
+	    app.run(debug=True)
