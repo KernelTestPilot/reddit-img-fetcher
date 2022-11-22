@@ -21,11 +21,11 @@ $(document).ready(function() {
 			else {
 				const m = data.title;
 			
-				$('.content').remove();
+				$('.swiper-slide').remove();
 				$.each(data.name, function( index, value ) {
 					const title =m[index];
 					
-					$('#test').append("<div class='content'> <img id='image' src="+value+"> <div class='content-overlay'><h2>"+title+"</h2> </div> </img> </div>");
+					$('#test').append("<div class='swiper-slide slide'><div class='content'> <img id='image' src="+value+"> <div class='content-overlay'><h2>"+title+"</h2> </div> </img> </div></div>");
 					
 				  });
 

@@ -5,6 +5,7 @@ import requests
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
+
 app = Flask(__name__)
 
 reddit = praw.Reddit('BestBuyBot')
