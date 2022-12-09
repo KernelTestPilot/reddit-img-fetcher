@@ -27,9 +27,13 @@ def process():
 	link_list =[]
 	title_list =[]
 	comment_list=[]
-	subName = request.form['name']
+	subreddits = reddit.subreddits
+	subNames = request.form['name']
 	subtype = request.form ['type']
-	if subName and subtype:
+	subName =subNames.rstrip() 
+	print(subName)
+	if subreddits.search_by_name(subName, include_nsfw=False):
+		if subName and subtype:
 			if subtype == 'hot':
 				subreddit = reddit.subreddit(subName).hot(limit=30)
 			elif subtype == 'new':
@@ -47,8 +51,11 @@ def process():
 							title_list.append(submission.title)				
 							print("---------------------------------\n")
 			return jsonify({'name' : link_list, 'title' : title_list } )		
-	return jsonify({'error' : 'Missing data!'})
 
+
+	else: 
+		print("false")
+		return jsonify({'error' : 'Missing data!'})
 
 
 if __name__ == '__main__':
